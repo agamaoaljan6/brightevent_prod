@@ -31,6 +31,6 @@ module Brightevent
     config.generators.system_tests = nil
     # config.autoload_paths << Rails.root.join('lib')
     config.autoload_paths += %W(#{config.root}/lib)
-
+    config.assets.initialize_on_precompile = false
   end
 end
