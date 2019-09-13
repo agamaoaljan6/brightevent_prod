@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a href="/" class="ml-3">
+        <img src="https://i.imgur.com/8uC8G1Z.png" alt="logo" height="55" width="55" border="0" class="logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+    </div>
+
+    <form class="form-inline my-2 my-lg-0">
+        <%= link_to "Browse Events", events_path, class:"nav-link" %>
+
+        <% if user_signed_in? %>
+        <a class="nav-link" href="/events/new">Create Events</a>
+ 
+
+        <a class="nav-link mr-2" href="<%=user_path(current_user)%>">
+            Hello <strong><%= current_user.first_name %>!</strong>
+        </a>
+
+
+ 
+        <%= link_to "Sign Out", session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: 'btn btn-danger my-2 my-sm-0 mr-2' %>
+        <% else %>
+        <%=link_to 'Sign In', new_session_path, class: 'btn btn-success my-2 my-sm-0 mr-2'%>
+        <%=link_to 'Sign Up', new_user_path, class: 'btn btn-info my-2 my-sm-0 mr-2'%>
+        <% end %>
+
+    </form>
+
+</nav>

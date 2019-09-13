@@ -1,0 +1,22 @@
+<%if @user.errors.any? %>
+<div class="row mt-4">
+    <div class="col-sm-6 offset-3">
+        <div class="alert alert-danger">
+            <div class="alert-heading">
+                <h2 class="alert-title" align="center">
+                    <%=pluralize(@user.errors.count, "error")%>
+                    prohibited signing-up:
+                </h2>
+                <div class="alert-body">
+                    <ul align="center">
+                        <% @user.errors.full_messages.each do |msg|%>
+                        <% p @user.errors %>
+                        <li><%= msg %></li>
+                        <%end%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%end%>
